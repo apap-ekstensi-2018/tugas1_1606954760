@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragment :: headFragment(title='Lihat Data Mahasiswa')">
+</head>
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	
+	<div class="container customContainer">
+		<div class="card border-primary mb-3" style="max-width: 100%;">
+		  <div class="card-header"><h4> Lihat Data Mahasiswa <b th:text="${mahasiswa.npm}"></b> </h4></div>
+		  <div class="card-body">
+				<!-- NPM-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">NPM</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.npm}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- NAMA-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Nama</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.nama}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- TEMPAT TANGGAL LAHIR-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Tempat Lahir</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.tempat_lahir}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- TANGGAL LAHIR-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Tanggal Lahir</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.tanggal_lahir}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- JENIS KELAMIN-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Jenis Kelamin</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.jenis_kelamin}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- AGAMA -->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Agama</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.agama}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- GOLONGAN DARAH-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Golongan Darah</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.golongan_darah}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- STATUS-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Status</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.status}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- TAHUN MASUK-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Tahun Mausuk</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.tahun_masuk}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+				
+				<!-- JALUR MASUK-->
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="textinput">Jalur Mausuk</label>
+				  <div class="col-sm-10">
+				    <input type="text" th:value="${mahasiswa.jalur_masuk}" class="form-control" readonly="true" />
+				  </div>
+				</div>
+						  
+		  </div>
+		</div>
+	</div>
+	
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+</html>

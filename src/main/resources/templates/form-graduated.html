@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragment :: headFragment(title='Kelulusan Mahasiswa')">
+</head>
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	
+	<div class="container customContainer">
+		<div class="container customContainer">
+		<form action="/mahasiswa/kelulusan" method="get">
+			<div class="card border-primary mb-3" style="max-width: 100%;">
+			  <div class="card-header"><h4> Presentase Kelulusan </h4><h1 th:text="${result} + '%'"></h1></div>
+			  <div class="card-body" th:if="${result == null || result == ''}">
+					<!-- TAHUN-->
+					<div class="form-group">
+					  <label class="col-sm-2 control-label" for="textinput">Tahun</label>
+					  <div class="col-sm-10">
+					    <input type="number" min="1900" max="2099" name="tahun" class="form-control"/>
+					  </div>
+					</div>
+					
+					<!-- Id Program Studi-->
+					<div class="form-group">
+					  <label class="col-sm-2 control-label" for="textinput">Id Program Studi</label>
+					  <div class="col-sm-10">
+					    <input type="text" name="prodi" class="form-control"/>
+					  </div>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Lihat</button>
+				</div>
+				
+				<div class="card-body" th:unless="${result == null || result == ''}">
+					<!-- TAHUN-->
+					<div class="form-group">
+					  <label class="col-sm-2 control-label" for="textinput">Tahun</label>
+					  <div class="col-sm-10">
+					    <input type="number" min="1900" max="2099" name="tahun" th:value="${tahun}" class="form-control" readonly="true"/>
+					  </div>
+					</div>
+					
+					<!-- Program Studi-->
+					<div class="form-group">
+					  <label class="col-sm-2 control-label" for="textinput">Program Studi</label>
+					  <div class="col-sm-10">
+					    <select class="form-control" name="prodi" readonly="true">
+						  <option th:each="prodi : ${prodis}"
+						  	th:selected="(${prodi.id} == ${prodi})"
+						  	 th:value="${prodi.id}"
+						  	 th:utext="${prodi.nama_prodi}"
+						  ></option>
+						</select>
+					  </div>
+					</div>
+					
+					<!-- Fakultas-->
+					<div class="form-group hidden">
+					  <label class="col-sm-2 control-label" for="textinput">Fakultas</label>
+					  <div class="col-sm-10">
+					    <input type="text" class="form-control" th:value="${fakultas.nama_fakultas}" readonly="true"/>
+					  </div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</form>
+	</div>
+		
+		
+	</div>
+	
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+</html>
